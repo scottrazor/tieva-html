@@ -1,0 +1,27 @@
+@tailwind base;
+
+@layer base {
+    @font-face {
+        font-family: 'Beausite Classic';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://4877059.fs1.hubspotusercontent-na1.net/hubfs/4877059/fonts/beausite-classic-light.otf) format('opentype');
+    }
+
+    @font-face {
+        font-family: 'Beausite Classic';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://4877059.fs1.hubspotusercontent-na1.net/hubfs/4877059/fonts/beausite-classic-regular.otf) format('opentype');
+    }
+
+    @font-face {
+        font-family: 'Beausite Classic';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://4877059.fs1.hubspotusercontent-na1.net/hubfs/4877059/fonts/beausite-classic-semibold.otf) format('opentype');
+    }
+}

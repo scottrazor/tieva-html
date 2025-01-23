@@ -1,0 +1,180 @@
+.site-header {
+    @apply bg-base-black backdrop-blur-lg bg-opacity-50;
+    @apply transition-all duration-300 ease-in-out;
+    @apply fixed w-full top-0 z-50;
+    @apply flex items-center;
+
+    > .container {
+        @apply relative h-full;
+        @apply grid grid-cols-4 lg:grid-cols-12 gap-4 items-center;
+
+        @screen lg {
+            @apply grid-cols-12;
+        }
+    }
+
+    &__logo {
+        @apply col-span-2 h-20;
+    }
+
+    &__menu-toggle {
+        @apply col-span-2;
+        @apply w-8 h-8;
+        @apply justify-self-end;
+
+        svg {
+            @apply fill-base-grey;
+        }
+        
+        @screen lg {
+            @apply hidden;
+        }
+    }
+}
+
+.site-header-menu {
+    @apply col-span-4;
+    @apply h-0 hidden;
+
+    transition: height 0.3s ease-in-out;
+    transition-behavior: allow-discrete;
+
+    @screen lg {
+        @apply block h-full col-span-8 col-start-5;
+    }
+
+    &__root, &__root > li, &__root > li > a {
+        @screen lg {
+            @apply h-full;
+        }
+    }
+
+    &__root {
+        @apply flex flex-col -mx-3;
+
+        > li {
+            @apply border-l border-base-white;
+
+            & > a {
+                @apply flex items-center px-3;
+    
+                &:hover ~ .site-header-menu__child > .child-wrapper {
+                    @apply grid;
+                }
+            }
+    
+            & > .container {
+                @screen lg {
+                    @apply absolute top-full left-0 w-full;
+                }
+            }
+        }
+
+        @screen lg {
+            @apply flex-row items-center;
+        }
+    }
+
+    .child-wrapper {
+        li > a {
+            @apply w-full py-3 inline-block;
+
+            @screen lg {
+                @apply border-l border-base-white px-4;
+            }
+        }
+
+        > ul {
+            @apply col-span-1;
+            @apply relative;
+
+            > li {
+                @apply col-span-1;
+            }
+
+            @screen lg {
+                width: 35%;
+            }
+        }
+
+        @screen lg {
+            @apply bg-base-black backdrop-blur-lg bg-opacity-50 grid-cols-4 gap-4;
+            @apply hidden grid-cols-12;
+
+            > ul {
+                @apply col-span-8 col-start-5;
+
+                > li {
+                    @apply col-span-3 col-start-1;
+
+                    > ul {
+                        @apply absolute top-0 left-full;
+                    }
+                }
+            }
+        }
+    }
+
+    .child-menu {
+        .grandchild-menu {
+            @apply w-full;
+
+            @screen lg {
+                @apply hidden;
+            }
+        }
+
+        li {
+            > a {
+                @apply flex items-center justify-between;
+
+                svg {
+                    @apply w-2 h-2;
+                    @apply fill-base-white;
+                }
+            }
+        }
+    }
+
+    &--open {
+        @starting-style {
+            @apply hidden h-0;
+        }
+
+        @apply block h-full;
+    }
+}
+
+.site--desktop .site-header-menu {
+    .child-wrapper {
+        @screen lg {
+            &:hover {
+                @apply grid;
+            }
+        }
+    }
+
+    .child-menu {
+        li {
+            @screen lg {
+                &:hover {
+                    > a {
+                        @apply bg-brand-yellow text-base-black;
+    
+                        svg {
+                            @apply fill-base-black;
+                        }
+                    }
+                }
+            }
+        }
+
+        > li.has-children {
+            &:hover {
+                > .grandchild-menu {
+                    @apply block;
+                }
+            }
+        }
+    }
+}
