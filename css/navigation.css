@@ -207,3 +207,9 @@
         @apply px-4;
     }
 }
+
+.site-footer {
+    .hs_cos_wrapper_type_icon > svg {
+        @apply w-6 h-6 fill-base-white;
+    }
+}

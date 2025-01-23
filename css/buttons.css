@@ -10,6 +10,43 @@
     }
 }
 
+.button--black {
+    @apply bg-base-black text-base-white border-base-black;
+}
+
+.button--white {
+    @apply bg-base-white text-base-black border-base-black;
+}
+
+.button--content {
+    @apply bg-base-white text-base-black border-base-black;
+    @apply dark:bg-brand-yellow dark:text-base-black dark:border-brand-yellow;
+}
+
+.button--hover-yellow {
+    &:hover {
+        @apply bg-brand-yellow text-base-black;
+    }
+}
+
+.button--hover-black {
+    &:hover {
+        @apply bg-base-black text-brand-yellow;
+    }
+}
+
+.button--hover-black-white {
+    &:hover {
+        @apply bg-base-black text-base-white;
+    }
+}
+
+.button--hover-white {
+    &:hover {
+        @apply bg-base-white text-base-black;
+    }
+}
+
 .button--ghost {
     @apply bg-transparent text-base-black border-base-black;
     @apply dark:text-base-white dark:border-base-white;

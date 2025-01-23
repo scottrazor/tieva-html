@@ -9,6 +9,10 @@
     interpolate-size: allow-keywords;
 }
 
+.hs_cos_wrapper_type_icon > svg {
+    @apply w-8 h-8;
+}
+
 .hero-banner__bg {
     @apply relative;
 
