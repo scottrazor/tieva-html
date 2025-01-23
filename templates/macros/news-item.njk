@@ -1,0 +1,22 @@
+{% set defaultOptions = {
+    "title": "News 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "image": "https://placehold.co/600x400"
+} %}
+
+{% macro newsItem(options) %}
+<div class="swiper-slide">
+    <a href="{{ options.link }}" class="news-item grid grid-cols-6 grid-rows-1 gap-4">
+        <img class="col-span-4 col-start-1 col-end-5 h-full object-cover" src="{{ options.image }}" alt="{{ options.title }}">
+        <div class="h-full justify-end py-20 pr-8 flex flex-col gap-4 col-span-4 col-start-3 col-end-7">
+            <div class="relative z-10">
+                <h3 class="text-3xl md:text-5xl mb-4">{{ options.title }}</h3>
+                <div class="flex flex-col gap-10">
+                    <p class="text-base md:text-xl">{{ options.description }}</p>
+                    <span class="text-brand-yellow flex items-center gap-3">Read <i class="fa-light fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+{% endmacro %}

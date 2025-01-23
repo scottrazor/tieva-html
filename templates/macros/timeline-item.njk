@@ -1,0 +1,15 @@
+{% set defaultOptions = {
+    title: '2025',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: 'https://placehold.co/600x400',
+    even: false
+} %}
+{% macro timelineItem(options) %}
+    <div class="timeline-item">
+        <img src="{{ options.image or defaultOptions.image }}" alt="{{ options.title or defaultOptions.title }}">
+            <div class="timeline-item-content">
+                <h3 class="timeline-item-content__title">{{ options.title }}</h3>
+                <p class="timeline-item-content__content">{{ options.content }}</p>
+            </div>
+        </div>
+    {% endmacro %}

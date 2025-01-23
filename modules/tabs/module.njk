@@ -1,0 +1,38 @@
+{% from "../../templates/macros/image-cta.njk" import image_cta %}
+<section class="tabs py-20 md:py-40">
+    <div class="container">
+        <input type="radio" name="tabs" id="tab-1" class="tabs__nav-input" checked="checked"/>
+        <label for="tab-1" class="tabs__nav-label">Tab 1</label>
+        <div class="tab-content">
+            {{ image_cta({
+                image: '/images/image-cta.jpg',
+                title: 'Meet the ever-changing demands of IT and unlock the full potential of your network. 1',
+                content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                button: 'Learn more',
+                url: '/'
+            }) }}
+        </div>
+        <input type="radio" name="tabs" id="tab-2" class="tabs__nav-input"/>
+        <label for="tab-2" class="tabs__nav-label">Tab 2</label>
+        <div class="tab-content">
+            {{ image_cta({
+                image: '/images/image-cta.jpg',
+                title: 'Meet the ever-changing demands of IT and unlock the full potential of your network. 2',
+                content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                button: 'Learn more',
+                url: '/'
+            }) }}
+        </div>
+        <input type="radio" name="tabs" id="tab-3" class="tabs__nav-input"/>
+        <label for="tab-3" class="tabs__nav-label">Tab 3</label>
+        <div class="tab-content">
+            {{ image_cta({
+                image: '/images/image-cta.jpg',
+                title: 'Meet the ever-changing demands of IT and unlock the full potential of your network. 3',
+                content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                button: 'Learn more',
+                url: '/'
+            }) }}
+        </div>
+    </div>
+</section>

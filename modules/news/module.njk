@@ -1,0 +1,19 @@
+{% from "../../templates/macros/news-thumb.njk" import newsThumb %}
+
+{% set news = [
+    { title: 'How can IT leaders turn challenge into opportunity?', image: 'https://placehold.co/600x400', url: '#', type: 'News' },
+    { title: 'How can AI spark an innovation culture?', image: 'https://placehold.co/600x400', url: '#', type: 'Insight' },
+    { title: 'Breaking silos to deliver omni-channel retail experiences', image: 'https://placehold.co/600x400', url: '#', type: 'News' }
+] %}
+
+<section class="news py-20 md:py-40">
+    <div class="container">
+        <h2 class="text-3xl md:text-5xl mb-10">Recent news, events and technology insights.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {% for item in news %}
+                {% call newsThumb(item) %}
+                {% endcall %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,27 @@
+{% from "../../templates/macros/statistic.njk" import statistic %}
+
+{% set stats = [
+    {
+        "title": "Male to Female Ratio",
+        "statistic": "50:50"
+    },
+    {
+        "title": "Staff Retention",
+        "statistic": "98%"
+    },
+    {
+        "title": "Investor in People",
+        "statistic": "No.1"
+    }
+] %}
+
+<section class="statistics py-20 md:py-40">
+    <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% for stat in stats %}
+            {% call statistic(stat) %}
+            {% endcall %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

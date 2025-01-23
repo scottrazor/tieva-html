@@ -1,0 +1,77 @@
+{% set socialLinks = [
+    {
+        "name": "Instagram",
+        "icon": "fa-brands fa-instagram",
+        "url": "https://www.instagram.com/tieva_leeds"
+    },
+    {
+        "name": "LinkedIn",
+        "icon": "fa-brands fa-linkedin",
+        "url": "https://www.linkedin.com/company/tieva-leeds"
+    },
+    {
+        "name": "X",
+        "icon": "fa-brands fa-x-twitter",
+        "url": "https://www.x.com/tieva_leeds"
+    },
+    {
+        "name": "Youtube",
+        "icon": "fa-brands fa-youtube",
+        "url": "https://www.youtube.com/tieva_leeds"
+    },
+    {
+        "name": "Facebook",
+        "icon": "fa-brands fa-facebook",
+        "url": "https://www.facebook.com/tieva.leeds"
+    },
+    {
+        "name": "TikTok",
+        "icon": "fa-brands fa-tiktok",
+        "url": "https://www.tiktok.com/tieva_leeds"
+    }
+] %}
+
+<footer class="site-footer bg-base-black text-base-white py-20">
+    <div class="container flex flex-col gap-16 md:grid md:grid-cols-12 md:gap-4">
+        <div class="md:col-span-4 flex flex-col gap-16">
+            <div class="address flex flex-col gap-6">
+                <p class="text-xl font-semibold">TIEVA Leeds</p>
+                <p>The Mill II, Holly Park Mills,<br>
+                Leeds, LS28 5QS</p>
+                <a href="tel:03330430393" class="underline">+44 (0) 333 043 0393</a>
+            </div>
+            <ul class="footer-links flex items-center gap-4">
+                {% for link in socialLinks %}
+                <li>
+                    <a href="{{ link.url }}" class="text-xl" target="_blank">
+                        <span class="sr-only">{{ link.name }}</span>
+                        <i class="{{ link.icon }}"></i>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="md:col-span-4">
+            <div class="address flex flex-col gap-6">
+                <p class="text-xl font-semibold">TIEVA Thames Valley</p>
+                <p>Suite 04, 1010 Eskdale Road, Winnersh Triangle,<br>
+                Wokingham, RG41 5TS</p>
+                <a href="tel:03330430393" class="underline">+44 (0) 333 043 0393</a>
+            </div>
+        </div>
+        <div class="md:col-span-3 md:col-end-13">
+            <div class="address flex flex-col gap-6">
+                <p class="text-xl font-semibold">Legal</p>
+                <ul class="footer-links flex flex-col gap-2">
+                    <li><a href="/privacy-policy" class="underline">Privacy Policy</a></li>
+                    <li><a href="/terms-and-conditions" class="underline">Terms and Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-16">
+        <p class="copyright">
+            &copy; Copyright 2025 TIEVA, inc. - All rights reserved.
+        </p>
+    </div>
+</footer>

@@ -1,0 +1,40 @@
+{% from "../../templates/macros/solution-card.njk" import solutionCard %}
+
+{% set cards = [
+    {
+        "title": "Cloud Migration",
+        "content": "Elevate your business to new heights with a cloud-first approach to digital transformation."
+    },
+    {
+        "title": "Network",
+        "content": "Experience secure, reliable, high-performance network connectivity that keeps your business running smoothly."
+    },
+    {
+        "title": "Digital Workspace",
+        "content": "Create a dynamic and collaborative work environment with our secure digital workplace solutions."
+    },
+    {
+        "title": "Cyber Security",
+        "content": "Protect users, applications and data wherever they are on-premises, in the cloud or in a hybrid environment."
+    },
+    {
+        "title": "IT Support",
+        "content": "24-7 IT Support, tailored to your needs. From general advice to complex problem diagnosis and resolution."
+    },
+    {
+        "title": "AI & Data",
+        "content": "Our AI partners are experts in leveraging computer vision, Gen AI, and machine learning, to solve complex challenges."
+    }
+] %}
+
+<section class="solutions text-base-black bg-base-grey dark:text-base-white dark:bg-base-black py-20 md:py-40">
+    <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {% for card in cards %}
+            {% call solutionCard(card.title) %}
+            {{ card.content }}
+            {% endcall %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,96 @@
+<header class="site-header">
+    <div class="container">
+        <img class="site-header__logo" src="https://4877059.fs1.hubspotusercontent-na1.net/hubfs/4877059/logo-1.svg" alt="TIEVA - Fulcrum IT Partners" width="181" height="38">
+        <button class="site-header__menu-toggle" id="menu_toggle" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Pro 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.--><path d="M0 80c0-8.8 7.2-16 16-16l416 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L16 96C7.2 96 0 88.8 0 80zM0 240c0-8.8 7.2-16 16-16l416 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L16 256c-8.8 0-16-7.2-16-16zM448 400c0 8.8-7.2 16-16 16L16 416c-8.8 0-16-7.2-16-16s7.2-16 16-16l416 0c8.8 0 16 7.2 16 16z"/></svg>
+        </button>
+        <nav class="site-header-menu" id="menu">
+            <ul class="site-header-menu__root">
+                <!-- Node -->
+                <li>
+                    <a href="">Solutions</a>
+                    <div class="container site-header-menu__child">
+                        <div class="child-wrapper">
+                            <!-- Children -->
+                            <ul class="child-menu">
+                                <li class="has-children">
+                                    <a href="">
+                                        Cloud
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Pro 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.--><path d="M299.3 244.7c6.2 6.2 6.2 16.4 0 22.6l-192 192c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6L265.4 256 84.7 75.3c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l192 192z"/></svg>
+                                    </a>
+                                    <!-- Grandchildren -->
+                                    <ul class="grandchild-menu">
+                                        <li><a href="">Page 1</a></li>
+                                        <li><a href="">Page 2</a></li>
+                                        <li><a href="">Page 3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children"><a href="">Cloud</a>
+                                    <!-- Grandchildren -->
+                                    <ul class="grandchild-menu">
+                                        <li><a href="">Page 4</a></li>
+                                        <li><a href="">Page 5</a></li>
+                                        <li><a href="">Page 6</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+{% block scripts %}
+    <script>
+        function throttle(func, limit) {
+            let lastFunc;
+            let lastRan;
+
+            return function (...args) {
+                const context = this;
+                if (!lastRan) {
+                    func.apply(context, args);
+                    lastRan = Date.now();
+                } else {
+                    clearTimeout(lastFunc);
+                    lastFunc = setTimeout(() => {
+                        if (Date.now() - lastRan >= limit) {
+                        func.apply(context, args);
+                        lastRan = Date.now();
+                        }
+                    }, limit - (Date.now() - lastRan));
+                }
+            };
+        }
+
+        let lastScrollTop = 0; // Keeps track of the last scroll position
+        const offset = 20; // Minimum offset before detecting a direction
+        const header = document.querySelector('.site-header');
+        const headerHeight = header.offsetHeight;
+
+        window.addEventListener('scroll', throttle(() => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (Math.abs(scrollTop - lastScrollTop) > offset) {
+                if (scrollTop > lastScrollTop) {
+                    header.classList.add('site-header--hidden');
+                    header.style.top = `-${headerHeight}px`;
+                } else if (scrollTop < lastScrollTop) {
+                    header.classList.remove('site-header--hidden');
+                    header.style.top = `0`;
+                }
+                lastScrollTop = scrollTop <= 0
+                    ? 0
+                    : scrollTop; // Update lastScrollTop
+            }
+        }, 100));
+
+        const menuToggle = document.getElementById('menu_toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('site-header-menu--open');
+        });
+    </script>
+{% endblock %}

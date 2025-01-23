@@ -1,0 +1,23 @@
+{% from "../../templates/macros/slider.njk" import slider %}
+{% from "../../templates/macros/news-item.njk" import newsItem %}
+
+{% set newsItems = [
+    { title: 'News 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: 'https://placehold.co/600x400' },
+    { title: 'News 2', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: 'https://placehold.co/600x400' },
+    { title: 'News 3', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: 'https://placehold.co/600x400' }
+] %}
+
+<section class="news-slider py-20 md:py-40">
+    <div class="container">
+        <h2 class="text-3xl md:text-5xl mb-10">Some of our favourite <span class="underline">results.</span></h2>
+        {% call slider({ id: 'news-slider', slidesPerView: 2 }) %}
+            {% for item in newsItems %}
+                {% call newsItem(item) %}
+                {% endcall %}
+            {% endfor %}
+        {% endcall %}
+    </div>
+    <script>
+        console.log('news slider')
+    </script>
+</section>

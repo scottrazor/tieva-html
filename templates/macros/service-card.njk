@@ -1,0 +1,18 @@
+{% macro serviceCard(options) %}
+    <div class="service-card">
+        <a href="{{ options.url }}" class="flex flex-col justify-end gap-8 p-8 bg-base-black text-base-grey dark:bg-brand-yellow dark:text-base-black min-h-[250px] lg:min-h-[400px]">
+            {{ caller() }}
+            {% if options.title %}
+                <h3
+                    class="text-xl md:text-3xl">
+                    <!-- cms-field: title -->
+                    {{ options.title }}
+                    <!-- /cms-field -->
+                </h3>
+                <span class="flex items-center gap-3">Read more
+                    <i class="fa-light fa-arrow-right"></i>
+                </span>
+            {% endif %}
+        </a>
+    </div>
+{% endmacro %}

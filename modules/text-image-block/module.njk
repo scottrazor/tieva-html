@@ -1,0 +1,78 @@
+{% set stat = {
+    "title": "Investor in People",
+    "statistic": "No.1"
+} %}
+<section class="text-image-blocks py-20 md:py-40 mx-4 overflow-x-clip">
+    <div class="container flex flex-col gap-4">
+        {% if module.colour == 'eggplant' %}
+            {% set colourClass = 'bg-brand-eggplant' %}
+        {% elseif module.colour == 'yellow' %}
+            {% set colourClass = 'bg-brand-yellow' %}
+        {% elseif module.colour == 'sky' %}
+            {% set colourClass = 'bg-brand-sky' %}
+        {% elseif module.colour == 'red' %}
+            {% set colourClass = 'bg-brand-red' %}
+        {% elseif module.colour == 'purple' %}
+            {% set colourClass = 'bg-brand-purple' %}
+        {% elseif module.colour == 'green' %}
+            {% set colourClass = 'bg-brand-green' %}
+        {% else %}
+            {% set colourClass = 'bg-brand-red' %}
+        {% endif %}
+        <div class="text-image-block flex flex-col lg:flex-row gap-4 items-stretch">
+            <div class="text-image-block__text lg:w-5/12 p-12 bg-brand-red flex flex-col gap-16 lg:gap-30 justify-between">
+                <div class="text-xl lg:text-3xl text-base-black">
+                    <p>
+                        We know the quality of our service is only made possible by our team and that's why we invest so much into our people.
+                        We are proud to be a part of Investors In People and have been awarded Platinum Standard.
+                    </p>
+                </div>
+                <div class="statistic border-t border-base-black text-base-black pt-6 flex flex-col gap-2">
+                    <h3
+                        class="text-3xl md:text-6xl font-semibold">
+                        <!-- cms-field: statistic -->
+                        {{ stat.statistic }}
+                        <!-- /cms-field -->
+                    </h3>
+                    <span
+                        class="text-xl">
+                        <!-- cms-field: title -->
+                        {{ stat.title }}
+                        <!-- /cms-field -->
+                    </span>
+                </div>
+            </div>
+            <div class="text-image-block__image lg:w-7/12">
+                <img src="/images/statement-image.jpg" alt="Text Image Block" class="xl:max-w-[1024px] h-full object-cover"></div>
+            </div>
+            <div class="text-image-block flex flex-col lg:flex-row gap-4 items-stretch">
+                <div class="text-image-block__text lg:w-5/12 p-12 bg-brand-red flex flex-col gap-16 lg:gap-30 justify-between">
+                    <div class="text-xl lg:text-3xl text-base-black">
+                        <p>
+                            We know the quality of our service is only made possible by our team and that's why we invest so much into our people.
+                            We are proud to be a part of Investors In People and have been awarded Platinum Standard.
+                        </p>
+                    </div>
+                    <div class="statistic border-t border-base-black text-base-black pt-6 flex flex-col gap-2">
+                        <h3
+                            class="text-3xl md:text-6xl font-semibold">
+                            <!-- cms-field: statistic -->
+                            {{ stat.statistic }}
+                            <!-- /cms-field -->
+                        </h3>
+                        <span
+                            class="text-xl">
+                            <!-- cms-field: title -->
+                            {{ stat.title }}
+                            <!-- /cms-field -->
+                        </span>
+                    </div>
+                </div>
+                <div class="text-image-block__image lg:w-7/12">
+                    <img
+                        src="/images/statement-image.jpg"
+                        alt="Text Image Block"
+                        class="xl:max-w-[1024px] h-full object-cover mr-0 ml-auto"></div>
+                </div>
+            </div>
+        </section>

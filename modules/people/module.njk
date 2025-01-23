@@ -1,0 +1,33 @@
+{% from "../../templates/macros/statistic.njk" import statistic %}
+
+{% set stats = [
+    {
+        "title": "Male to Female Ratio",
+        "statistic": "50:50"
+    },
+    {
+        "title": "Staff Retention",
+        "statistic": "98%"
+    },
+    {
+        "title": "Investor in People",
+        "statistic": "No.1"
+    }
+] %}
+
+<section class="statistics py-20 md:py-40">
+    <div class="container">
+        <h2 class="-mx-px text-8xl lg:text-9xl font-semibold relative z-10 bg-gradient-to-b from-base-grey dark:from-base-black from-60% md:from-40% to-transparent pb-24">
+            <!-- cms-field: title -->
+            Our People
+            <!-- /cms-field -->
+        </h2>
+        <img src="/images/our-people.webp" alt="People" width="1200" class="-my-32 md:-my-48">
+        <div class="-mx-px grid grid-cols-1 md:grid-cols-3 gap-6 md:px-10 relative bg-gradient-to-t from-base-grey dark:from-base-black from-80% md:from-20% to-transparent pt-32">
+            {% for stat in stats %}
+            {% call statistic(stat) %}
+            {% endcall %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

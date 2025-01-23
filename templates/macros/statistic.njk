@@ -1,0 +1,14 @@
+{% macro statistic(stat) %}
+<div class="statistic border-l border-base-black dark:border-base-grey pl-6 py-1 flex flex-col gap-2">
+    <h3 class="text-3xl md:text-6xl font-semibold">
+        <!-- cms-field: statistic -->
+        {{ stat.statistic }}
+        <!-- /cms-field -->
+    </h3>
+    <span class="text-xl md:text-2xl">
+        <!-- cms-field: title -->
+        {{ stat.title }}
+        <!-- /cms-field -->
+    </span>
+</div>
+{% endmacro %}

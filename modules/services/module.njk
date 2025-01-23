@@ -1,0 +1,27 @@
+{% from "../../templates/macros/service-card.njk" import serviceCard %}
+
+{% set cards = [
+    {
+        "title": "Network Audits"
+    },
+    {
+        "title": "Network Design"
+    },
+    {
+        "title": "Network Migration"
+    },
+    {
+        "title": "Network Support"
+    }
+] %}
+
+<section class="solutions text-base-black bg-base-grey dark:text-base-white dark:bg-base-black py-20 md:py-40">
+    <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            {% for card in cards %}
+            {% call serviceCard(card.title) %}
+            {% endcall %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

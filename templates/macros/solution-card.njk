@@ -1,0 +1,16 @@
+{% macro solutionCard(title) %}
+<div class="solution-card h-full relative">
+    <div class="solution-card__content flex flex-col gap-4 p-8 bg-base-black text-base-grey">
+        {% if title %}
+        <h3 class="text-2xl md:text-5xl">
+            <!-- cms-field: title -->
+        {{ title }}
+        <!-- /cms-field -->
+        </h3>
+        {% endif %}
+        <div class="content">
+            {{ caller() }}
+        </div>
+    </div>
+</div>
+{% endmacro %}

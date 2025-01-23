@@ -1,0 +1,102 @@
+{% from "../../templates/macros/timeline-item.njk" import timelineItem %}
+{% set timeline = [
+        { title: '2025 1', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', image: 'https://placehold.co/600x400' },
+        { title: '2025 2', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', image: 'https://placehold.co/600x400' },
+        { title: '2025 3', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', image: 'https://placehold.co/600x400' },
+        { title: '2025 4', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', image: 'https://placehold.co/600x400' }
+] %}
+<section class="timeline-wrapper py-20 md:py-40">
+    <div class="container">
+        <div class="timeline relative flex flex-col md:flex-row-reverse flex-wrap justify-between gap-16 before:bg-base-black
+                dark:before:bg-base-grey">
+            {% for item in timeline %}
+                {% call timelineItem({
+                    title: item.title,
+                    content: item.content,
+                    image: item.image,
+                    even: loop.index is even
+                }) %}
+                {% endcall %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<style>
+    .timeline {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            pointer-events: none;
+            @media(max-width: 767px) {
+                left: 0;
+                transform: translateX(0);
+            }
+        }
+        .timeline-item {
+            flex: 0 1 min(calc(50% - 2.5rem), 500px);
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            position: relative;
+            .timeline-item-content {
+                .timeline-item-content__title {
+                    &::before {
+                        content: '';
+                        background-image: url('../../images/timeline-arrow.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        right: -93px;
+                        left: auto;
+                        transform: translateX(-50%);
+                        width: 35px;
+                        height: 35px;
+                        transform: rotate(180deg);
+                        @media(max-width: 1199px) {
+                            right: -50px;
+                        }
+                        @media(max-width: 767px) {
+                            left: -12px;
+                            right: auto;
+                            transform: rotate(0deg);
+                        }
+                        @media(prefers-color-scheme: dark) {
+                            filter: invert(1);
+                        }
+                    }
+                }
+            }
+            @media(max-width: 767px) {
+                flex-direction: column-reverse;
+                padding-left: 2.5rem;
+            }
+            &:nth-child(odd) {
+                flex-direction: column-reverse;
+                .timeline-item-content__title {
+                    &::before {
+                        right: auto;
+                        left: -93px;
+                        transform: rotate(0deg);
+                        @media(max-width: 1199px) {
+                            left: -50px;
+                        }
+                        @media(max-width: 767px) {
+                            left: -12px;
+                        }
+                    }
+                }
+            }
+            .timeline-item-content__title {
+                font-size: 2rem;
+                line-height: 1.25;
+                letter-spacing: 0.64px;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+</style>
