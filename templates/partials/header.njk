@@ -125,7 +125,12 @@
 
         const getActiveGrandchildMenuHeight = () => {
             const activeGrandchildMenu = [...grandchildMenu].find(menu => window.getComputedStyle(menu).display !== 'none');
-            return getElementHeight(activeGrandchildMenu);
+            const gcMenuParent = activeGrandchildMenu.closest('.child-menu');
+            const gcMenuParentHeight = getElementHeight(gcMenuParent);
+            const gcMenuHeight = getElementHeight(activeGrandchildMenu);
+
+            // return largest of the two
+            return Math.max(gcMenuParentHeight, gcMenuHeight);
         };
 
         const adjustWrapperHeight = () => {

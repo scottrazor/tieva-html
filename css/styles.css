@@ -1,5 +1,6 @@
 @import './tailwind/base.css';
 @import './tailwind/components.css';
+@import './buttons.css';
 @import './navigation.css';
 
 :root {

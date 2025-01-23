@@ -1,34 +1,6 @@
 @tailwind components;
 
 @layer components {
-    .button {
-        @apply inline-flex items-center gap-2 py-4 px-6 rounded-full border;
-    }
-
-    .button--yellow {
-        @apply bg-brand-yellow text-base-black border-brand-yellow;
-
-        &:hover {
-            @apply bg-base-black text-brand-yellow;
-        }
-    }
-
-    .button--ghost {
-        @apply bg-transparent text-base-black border-base-black;
-        @apply dark:text-base-white dark:border-base-white;
-
-        &:hover {
-            @apply bg-base-white text-base-black dark:bg-base-black dark:text-base-white;
-        }
-    }
-
-    .button--ghost-dark {
-        @apply bg-transparent text-base-white border-base-white;
-
-        &:hover {
-            @apply bg-base-white text-base-black dark:bg-base-black dark:text-base-white;
-        }
-    }
 
     .quote__grid {
         @apply md:grid md:grid-rows-1 md:grid-cols-12;  
