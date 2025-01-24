@@ -208,6 +208,56 @@
     }
 }
 
+.footer-cta {
+    --padding: 6.25rem;
+
+    @apply bg-base-black text-base-white;
+    @apply dark:bg-brand-yellow dark:text-base-black;
+
+    padding-top: var(--padding);
+
+    &__text {
+        @apply relative z-10;
+
+        padding-bottom: var(--padding);
+    }
+
+    &__image {
+        @apply relative;
+    }
+
+    &__image-inner {
+        @apply absolute right-0;
+
+        top: calc(var(--padding) * -2);
+        height: calc(100% + var(--padding) * 2);
+        z-index: 1;
+
+        &:before {
+            content: '';
+            @apply absolute inset-0;
+            @apply bg-gradient-to-b from-transparent to-base-black;
+
+            z-index: 1;
+            mask-image: url(/images/arrow-mask.svg);
+            mask-size: 100%;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+
+        img {
+            @apply max-w-none object-cover;
+            @apply h-full;
+
+            aspect-ratio: 894 / 496;
+            mask-image: url(/images/arrow-mask.svg);
+            mask-size: 100%;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+    }
+}
+
 .site-footer {
     .hs_cos_wrapper_type_icon > svg {
         @apply w-6 h-6 fill-base-white;

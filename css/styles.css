@@ -2,6 +2,7 @@
 @import './tailwind/components.css';
 @import './buttons.css';
 @import './navigation.css';
+@import './news.css';
 
 :root {
     @apply font-sans;

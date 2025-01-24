@@ -1,0 +1,22 @@
+.news-thumb {
+    @apply bg-cover bg-center bg-no-repeat min-h-[500px] relative;
+
+    a {
+        @apply no-underline absolute inset-0;
+        @apply transition-all duration-300;
+
+        h3, i {
+            @apply transition-all duration-300;
+        }
+
+        &:hover {
+            h3 {
+                @apply text-brand-yellow -ml-2 mr-2;
+            }
+
+            i {
+                @apply ml-2;
+            }
+        }
+    }
+}

@@ -4,37 +4,36 @@
     "image": "https://placehold.co/600x400",
     "url": "#"
 } %}
-
 {% macro newsThumb(options) %}
-<div class="news-thumb" style="background-image: url({{ options.image or defaultOptions.image }})">
-    <a class="bg-gradient-to-b from-transparent to-base-black to-70%" href="{{ options.url or defaultOptions.url }}">
-        <div class="h-full justify-end p-8 flex flex-col">
-            <div class="relative z-10">
-                <div class="flex flex-col gap-8 justify-between">
-                    <div class="flex flex-col items-start gap-2">
-                        <span class="bg-base-white text-sm text-base-black uppercase p-1">{{ options.type or defaultOptions.type }}</span>
-                        <h3 class="text-2xl md:text-3xl text-base-white">{{ options.title or defaultOptions.title }}</h3>
+    <div class="news-thumb" style="background-image: url({{ options.image or defaultOptions.image }})">
+        <a class="bg-gradient-to-b from-transparent to-base-black to-70% hover:to-base-black/90" href="{{ options.url or defaultOptions.url }}">
+            <div class="h-full justify-end p-8 flex flex-col">
+                <div class="relative z-10">
+                    <div class="flex flex-col gap-8 justify-between">
+                        <div class="flex flex-col items-start gap-2">
+                            <span class="bg-base-white text-sm text-base-black uppercase p-1">{{ options.type or defaultOptions.type }}</span>
+                            <h3 class="text-2xl md:text-3xl text-base-white">{{ options.title or defaultOptions.title }}</h3>
+                        </div>
+                        <span class="text-brand-yellow flex items-center gap-3">Read
+                            <i class="fa-light fa-arrow-right"></i>
+                        </span>
                     </div>
-                    <span class="text-brand-yellow flex items-center gap-3">Read <i class="fa-light fa-arrow-right"></i></span>
                 </div>
             </div>
-        </div>
-    </a>
-</div>
-
-<style>
-    .news-thumb {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 500px;
-        position: relative;
-
-        a {
-            text-decoration: none;
-            position: absolute;
-            inset: 0;
+        </a>
+    </div>
+    <style>
+        .news-thumb {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 500px;
+            position: relative;
+            a {
+                text-decoration: none;
+                position: absolute;
+                inset: 0;
+            }
         }
-    }
-</style>
+    </style>
 {% endmacro %}
